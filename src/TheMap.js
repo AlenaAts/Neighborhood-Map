@@ -30,7 +30,10 @@ class TheMap extends Component {
             onClick={onMarkerClick}
             name={school.name}
             position={{ lat: school.location.lat, lng: school.location.lng}}
-            address={school.location.formattedAddress}
+            address={school.location.address}
+            city={school.location.city}
+            country={school.location.country}
+            state={school.location.state}
             />
           ))}
 
@@ -42,10 +45,9 @@ class TheMap extends Component {
             <h2>{selectedPlace.name}</h2>
             <div>
               <span>{selectedPlace.address}</span>
-              <span>{selectedPlace.address}</span>
-              <span>{selectedPlace.address}</span>
-              <span>{selectedPlace.address}</span>
-              <span>{selectedPlace.address}</span>
+              <span>{selectedPlace.city}</span>
+              <span>{selectedPlace.state}</span>
+              <span>{selectedPlace.country}</span>
             </div>
           </div>
         </InfoWindow>
