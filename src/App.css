@@ -1,0 +1,250 @@
+/*============ fonts =============*/
+/*
+font-family: 'Quicksand', sans-serif;
+font-family: 'Pacifico', cursive;   --
+font-family: 'Poiret One', cursive;
+font-family: 'Great Vibes', cursive;
+font-family: 'Fredoka One', cursive;
+
+font-family: 'Tangerine', cursive;
+font-family: 'Julius Sans One', sans-serif;
+font-family: 'Cabin Sketch', cursive;
+*/
+
+/*=========== colors =============*/
+/*
+header, footer - #5b0000
+sidebar - #990000
+border right - #3d0000
+light grey - #C0C0C0
+tint of blue - #00626B
+map background - #f4e5e5
+*/
+
+@charset "utf-8";
+@import url('https://fonts.googleapis.com/css?family=Cabin+Sketch:400,700|Fredoka+One|Great+Vibes|Julius+Sans+One|Pacifico|Poiret+One|Quicksand|Sacramento|Tangerine&subset=latin-ext');
+
+body,
+p,
+ul,
+li,
+input {
+	font-family: 'Quicksand', sans-serif;
+	font-size: 10pt;
+	color: #fff;
+}
+
+ul {
+	list-style-type: none;
+	padding: 0; 
+}
+
+a {
+	text-decoration: none;
+	/*color: #fff;*/
+	color: black;
+
+}
+
+a:hover,
+a:focus {
+	color: #009999;
+	text-decoration: none;
+}
+
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family: 'Tangerine', cursive;
+	margin: auto;
+}
+
+header,
+footer,
+aside,
+section {
+	display: block;
+}
+
+/* TODO: deside do you need it*/
+html {
+	overflow-y: hidden;
+}
+
+.App {
+	max-height: 100%; /*Do you need this?*/
+}
+
+.App header {
+	width: 100%;
+	position: fixed;
+	top: 0;
+	background-color: #5b0000;
+	text-align: center;
+	min-height: 50px;
+}
+
+.App h1 {
+	font-family: 'Cabin Sketch', cursive;
+	color: #fff;
+	font-size: 22pt;
+	font-weight: 700;
+	letter-spacing: 10px;
+	text-transform: uppercase;
+	margin: 7.5px 0 0 0;
+	padding: 0;
+}
+
+.maincontent {
+	top: 50px;
+	display: flex;
+	flex-direction: row;
+	position: absolute;
+	width: 100%;
+	bottom: 45px;
+}
+
+.maincontent > div {
+	width: 100%;
+}
+
+.sidebar {
+	background-color: #990000;
+	text-align: center;
+	width: 25%;
+	min-width: 250px;
+	z-index: 0;
+	display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	position: relative;
+	border-right: 1px solid #3d0000;
+	overflow-y: scroll;
+}
+
+/*not working so far
+.sidebar::-webkit-scrollbar {
+	width: 10px;
+}
+
+.sidebar::-webkit-scrollbar-track {
+	border-radius: 10px;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+	border-radius: 10px;
+	background: black;
+}*/
+
+.search-wrapper {
+	width: 100%;
+	padding: 15px 0;
+	background-color: #faf4f4;
+}
+
+.school-search {
+	border: none;
+	outline: none;
+	font-size: 1.5em;
+}
+
+.search-wrapper input {
+	background-color: #faf4f4;
+}
+
+.school-container {
+	height: 100%;
+}
+
+.school-list li {
+	
+
+}
+
+.school-button {
+	border-radius: 3px;
+	background-color: #faf4f4;
+	border: none;
+	text-align: center;
+	color: #990000;
+	width: 90%;
+	margin-top:10px;
+	min-height: 30px;
+	text-transform: uppercase;
+	padding: 3px 3px;
+	font-family: 'Quicksand', sans-serif;
+	font-size: 13px;
+}
+
+.map-container {
+	background: blue none repeat scroll 0 0;
+	position: relative;
+	right: 0;
+	width: 100%;
+	height: 100%;
+}
+
+.map {
+	background-color: #dbcece;
+	height: 100%;
+	width: 100%;
+}
+
+.info-window {
+	color: #990000;
+	min-width: 200px;
+	text-align: center;
+}
+
+.info-window div {
+	color: #3d0000;
+	max-width: 200px;
+	text-align: center;
+	font-family: 'Quicksand', sans-serif;
+}
+
+.menu {
+	top: 40px;
+	z-index: 1;
+	position: absolute;
+	margin: 10px 15px 0;
+	width: 45px;
+	height: 45px;
+	border-radius: 5px;
+	background-color: #990000;
+	border: none;
+	text-align: center;
+}
+
+.menu span {
+	background-color: #faf4f4;
+	display: block;
+	width: 25px;
+	margin: 4px;
+	height: 4px;
+	border-radius: 5px;
+}
+
+.footer {
+	bottom: 0;
+	position: fixed;
+	width: 100%;
+	height: 45px;
+	background-color: #5b0000;
+	text-align: center;
+	z-index: 1;
+}
+
+.footer .logo {
+	margin-top: 10px;
+	height: 18px;
+}
+
+.footer span {
+	font-family: 'Tangerine', cursive;
+	color: #fff;
+	font-size: 16pt;
+	letter-spacing: 1px;
+}
