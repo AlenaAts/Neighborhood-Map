@@ -205,6 +205,10 @@ html {
 	font-family: 'Quicksand', sans-serif;
 }
 
+.info-window span {
+	display: block;
+}
+
 .menu {
 	top: 40px;
 	z-index: 1;
