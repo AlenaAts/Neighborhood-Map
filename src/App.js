@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import udacityLogo from './img/udacity-logo-svg-vector.svg'
+import foursquareLogo from './img/Powered-by-Foursquare-300.png'
 
 // components
 import TheMap from './TheMap'
@@ -56,7 +57,8 @@ class App extends Component {
     })
   }
 
-  // display an info window
+  // display an info window;
+  // credit: https://github.com/fullstackreact/google-maps-react
   onMarkerClick = (props, marker) => {
     this.setState({
       selectedPlace: props,
@@ -80,6 +82,11 @@ class App extends Component {
               <Search />
               <List
               schools={this.state.schoolList}/>
+              <footer className="footer">
+                <img  src={udacityLogo} alt="udacity logo"></img>
+                <span> Neighborhood Map Project</span>
+                <img src={foursquareLogo} alt="foursquare logo"></img>
+              </footer>
             </aside>
             <TheMap
             center={this.state.center}
@@ -93,10 +100,7 @@ class App extends Component {
              
          </main>
 
-          <footer className="footer">
-            <img className="logo" src={udacityLogo} alt="udacity logo"></img>
-            <span> Neighborhood Map Project. Copyright (c) 2018</span>
-          </footer>
+          
       </div>
     );
   }
