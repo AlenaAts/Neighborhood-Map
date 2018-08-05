@@ -103,7 +103,7 @@ html {
 	flex-direction: row;
 	position: absolute;
 	width: 100%;
-	bottom: 45px;
+	height: calc(100% - 50px);
 }
 
 .maincontent > div {
@@ -142,6 +142,12 @@ html {
 	width: 100%;
 	padding: 15px 0;
 	background-color: #faf4f4;
+	/*position: fixed; TODO: fix search field;*/
+}
+
+.search-wrapper input {
+	background-color: #faf4f4;
+	
 }
 
 .school-search {
@@ -150,12 +156,8 @@ html {
 	font-size: 1.5em;
 }
 
-.search-wrapper input {
-	background-color: #faf4f4;
-}
-
 .school-container {
-	height: 100%;
+	position: relative;
 }
 
 .school-list li {
@@ -198,6 +200,11 @@ html {
 	text-align: center;
 }
 
+.info-window h2 {
+	font-size: 30px;
+	text-transform: capitalize;
+}
+
 .info-window div {
 	color: #3d0000;
 	max-width: 200px;
@@ -233,15 +240,15 @@ html {
 
 .footer {
 	bottom: 0;
-	position: fixed;
+	position: static;
 	width: 100%;
-	height: 45px;
+	padding-bottom: 10px;
 	background-color: #5b0000;
 	text-align: center;
-	z-index: 1;
+	position: static;
 }
 
-.footer .logo {
+.footer img:first-child {
 	margin-top: 10px;
 	height: 18px;
 }
@@ -251,4 +258,9 @@ html {
 	color: #fff;
 	font-size: 16pt;
 	letter-spacing: 1px;
+}
+
+.footer img:last-child {
+	margin-top: 10px;
+	height: 30px;
 }
