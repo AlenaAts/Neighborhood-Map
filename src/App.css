@@ -121,7 +121,9 @@ html {
 	flex-wrap: nowrap;
 	position: relative;
 	border-right: 1px solid #3d0000;
-	overflow-y: scroll;
+	
+	
+	/*transition: transform .2s ease-in-out;*/
 }
 
 /*not working so far
@@ -142,12 +144,10 @@ html {
 	width: 100%;
 	padding: 15px 0;
 	background-color: #faf4f4;
-	/*position: fixed; TODO: fix search field;*/
 }
 
 .search-wrapper input {
 	background-color: #faf4f4;
-	
 }
 
 .school-search {
@@ -157,7 +157,10 @@ html {
 }
 
 .school-container {
+
 	position: relative;
+	overflow-y: scroll;
+	height: 100%
 }
 
 .school-list li {
@@ -240,12 +243,12 @@ html {
 
 .footer {
 	bottom: 0;
-	position: static;
+	position: relative;
 	width: 100%;
-	padding-bottom: 10px;
+	padding-bottom: 5px;
 	background-color: #5b0000;
 	text-align: center;
-	position: static;
+	height: 82px;
 }
 
 .footer img:first-child {
