@@ -20,15 +20,20 @@ class App extends Component {
           lat: 51.507363,
           lng: -0.128101
         },
-    zoom: 13,
+    zoom: 10,
 
-    // an array for fetched schools list
+    // an array for fetched schools list from the beginning
     schoolList: [],
 
     // parametres for info window to be displayed
     showingInfoWindow: false,
     activeMarker: {},
-    selectedPlace: {}
+    selectedPlace: {},
+
+    // query result for search field
+    query: '',
+    // an array of searched result
+    showingSchools: []
   }
 
   componentDidMount() {
@@ -52,8 +57,9 @@ class App extends Component {
         }
       })
 
-    this.setState({ schoolList })
-    console.log(schoolList)
+    this.setState({ schoolList, showingSchools: schoolList }) // two arrays have the same result
+                                                              // but only one of them will be used
+                                                              // for containing search result
     })
   }
 
@@ -67,6 +73,25 @@ class App extends Component {
     })
   }
 
+// search for schools
+  updateQuery = (query) => {
+    this.setState({ query: query})
+    this.updateList(query)
+  }
+
+  updateList = (query) => {
+    let showingSchools
+    if (query) {
+      const match = new RegExp(escapeRegExp(query), 'i')
+      showingSchools = this.state.schoolList.filter((school) => match.test(school.name))
+    } else {
+      showingSchools = this.state.schoolList // if the search field is empty
+                                             // an array will have result
+                                             // of fetched schools list
+    }
+
+    this.setState({showingSchools, query})
+  }
 
   render() {
     return (
@@ -79,25 +104,29 @@ class App extends Component {
           <main className="maincontent">
 
             <aside className="sidebar">
-              <Search />
+              <Search
+              query={this.state.query}
+              onChange={this.updateQuery}/>
               <List
-              schools={this.state.schoolList}/>
+              schools={this.state.showingSchools}
+              query={this.state.query}
+              />
               <footer className="footer">
-                <img  src={udacityLogo} alt="udacity logo"></img>
-                <span> Neighborhood Map Project</span>
-                <img src={foursquareLogo} alt="foursquare logo"></img>
-              </footer>
+              <img src={udacityLogo} alt="udacity logo"></img>
+              <span> Neighborhood Map Project</span>
+              <img src={foursquareLogo} alt="foursquare logo"></img>
+            </footer>
             </aside>
             <TheMap
             center={this.state.center}
             zoom={this.state.zoom}
-            schools={this.state.schoolList}
+            schools={this.state.showingSchools}
             marker={this.state.activeMarker}
             visible={this.state.showingInfoWindow}
             selectedPlace={this.state.selectedPlace}
             onMarkerClick={this.onMarkerClick}
             />
-             
+            
          </main>
 
           
