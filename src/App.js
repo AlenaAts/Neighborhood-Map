@@ -20,7 +20,7 @@ class App extends Component {
           lat: 51.507363,
           lng: -0.128101
         },
-    zoom: 10,
+    zoom: 11,
 
     // an array for fetched schools list from the beginning
     schoolList: [],
@@ -42,7 +42,7 @@ class App extends Component {
 
   // fetch the list of drama schools and academies in London area via Foursquare API
   getSchools() {
-    fetch('https://api.foursquare.com/v2/venues/search?near=London&query=drama+school+academy&categoty=4d4b7105d754a06372d81259+4bf58dd8d48988d199941735&limit=50&&intent=browse&client_id=4IDXHTW3JZM0BWQDVBZU2GB0N3ZZL5EBZ2TR5VV5Y3ZPNOKJ&client_secret=WVJNYT1DBFQE1EHJGMQKP1TFEVGHBSDOGPNCVTZNBEYHPJJ5&v=20180804&locale=en')
+    fetch('https://api.foursquare.com/v2/venues/search?near=London&query="drama school"+"drama academy"&categoty=4d4b7105d754a06372d81259+4bf58dd8d48988d199941735&limit=50&&intent=browse&client_id=4IDXHTW3JZM0BWQDVBZU2GB0N3ZZL5EBZ2TR5VV5Y3ZPNOKJ&client_secret=WVJNYT1DBFQE1EHJGMQKP1TFEVGHBSDOGPNCVTZNBEYHPJJ5&v=20180804&locale=en')
     .then(school => school.json())
     .then(sch => {
       const schoolList = sch.response.venues
@@ -110,6 +110,7 @@ class App extends Component {
               <List
               schools={this.state.showingSchools}
               query={this.state.query}
+              onMarkerClick={this.onMarkerClick} // not working as it should
               />
               <footer className="footer">
               <img src={udacityLogo} alt="udacity logo"></img>
