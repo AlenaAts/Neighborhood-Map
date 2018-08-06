@@ -4,7 +4,13 @@ class Search extends Component {
 	render() {
 		return(
 			<div className="search-wrapper">
-                <input className="school-search" placeholder="Search"></input>
+                <input
+                type="text"
+                className="school-search"
+                placeholder="Search"
+                value={this.props.query}
+                onChange={(event) => this.props.onChange(event.target.value)}>
+                </input>
             </div>
 		);
 	}
