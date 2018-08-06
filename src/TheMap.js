@@ -34,13 +34,14 @@ class TheMap extends Component {
             city={school.location.city}
             country={school.location.country}
             state={school.location.state}
+            animation={(selectedPlace.name === school.name) && this.props.google.maps.Animation.Fo}
             />
           ))}
 
         <InfoWindow
         marker={marker}
         visible={visible}
-        onClose={this.onInfoWindowClose}>
+        >
           <div className="info-window">
             <h2>{selectedPlace.name}</h2>
             <div>
