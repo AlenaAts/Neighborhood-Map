@@ -123,15 +123,13 @@ class App extends Component {
     // console.log(this.state.sidebarOn)
   }
 
-
+  // triggers marker event - animate the marker and opens infowindow
   onSchoolClick = (school) => {
-    //console.log(school.name)
-
-    for (const marker of this.state.markers) {
+    this.state.markers.forEach((marker) => {
       if (school.name == marker.marker.name) {
         new marker.props.google.maps.event.trigger( marker.marker, 'click') // custom event triggered
       }
-    }
+    })
   }
     
   render() {
@@ -152,7 +150,7 @@ class App extends Component {
               <List
               schools={this.state.showingSchools}
               query={this.state.query}
-              onSchoolClick={this.onSchoolClick} // not working as it should
+              onSchoolClick={this.onSchoolClick}
               />
 
               <footer className="footer">
