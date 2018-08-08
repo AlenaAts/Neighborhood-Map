@@ -1,5 +1,6 @@
 /*============ fonts =============*/
-/*
+/* some of this fonts haven't been used
+
 font-family: 'Quicksand', sans-serif;
 font-family: 'Pacifico', cursive;   --
 font-family: 'Poiret One', cursive;
@@ -18,7 +19,8 @@ sidebar - #990000
 border right - #3d0000
 light grey - #C0C0C0
 tint of blue - #00626B
-map background - #f4e5e5
+map background - #dbcece
+tint of pink - #faf4f4
 */
 
 @charset "utf-8";
@@ -41,9 +43,7 @@ ul {
 
 a {
 	text-decoration: none;
-	/*color: #fff;*/
-	color: black;
-
+	color: #fff;
 }
 
 a:hover,
@@ -228,11 +228,6 @@ html {
 	height: 100%
 }
 
-.school-list li {
-	
-
-}
-
 .school-button {
 	border-radius: 3px;
 	background-color: #faf4f4;
@@ -273,4 +268,46 @@ html {
 .footer img:last-child {
 	margin-top: 10px;
 	height: 30px;
+}
+
+/*=========== media queries ==========*/
+
+@media only screen and (min-width: 0px) {
+	.App header {
+		height: 115px;
+	}
+
+	.maincontent {
+		top: 115px;
+		height: calc(100% - 115px);
+	}
+}
+
+@media only screen and (max-width: 330px) {
+	.info-window {
+		min-width: 0;
+		max-width: 200px;
+	}
+}
+
+@media only screen and (min-width: 333px) {
+	.App header {
+		height: 78px;
+	}
+
+	.maincontent {
+		top: 78px;
+		height: calc(100% - 78px);
+	}
+}
+
+@media only screen and (min-width: 545px) {
+	.App header {
+		height: 50px;
+	}
+
+	.maincontent {
+		top: 50px;
+		height: calc(100% - 50px);
+	}
 }
