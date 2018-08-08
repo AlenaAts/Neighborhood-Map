@@ -54,17 +54,17 @@ class App extends Component {
         window.alert('Failed! No schools found')
       }
       schoolList.sort(sortBy('name'))
-      schoolList.forEach((e) => {
-        if (e.location.adress) {
-          e.location.adress = "No adress available"
-          e.location.formattedAdress.unshift("No adress available")
-        }
-      })
-
-    this.setState({ schoolList, showingSchools: schoolList }) // two arrays have the same result
-                                                              // but only one of them will be used
-                                                              // for containing search result
+      this.setState({ schoolList, showingSchools: schoolList }) // two arrays have the same result
+                                                               // but only one of them will be used
+                                                               // for containing search result
     })
+    .catch((error) => {this.onFetchError('', error)})
+  }
+
+  // display an error message when there is an error with api's data fetching
+  onFetchError = (e) => {
+    const content = document.querySelector('.maincontent');
+    content.innerHTML = `<div className="error-handler"><span>Sorry! Couldn't receive the data. Please, try later.</span></div>`
   }
 
   // display an info window;
@@ -78,12 +78,10 @@ class App extends Component {
    }
 
   // passes an empty array all markers data
-  setMarkers = (marker) => {
-        
+  setMarkers = (marker) => {    
     if (marker !== null) {
       this.state.markers.push(marker)
-    }
-    
+    }    
    // console.log(this.state.markers)
   }
 
@@ -126,7 +124,7 @@ class App extends Component {
   // triggers marker event - animate the marker and opens infowindow
   onSchoolClick = (school) => {
     this.state.markers.forEach((marker) => {
-      if (school.name == marker.marker.name) {
+      if (school.name === marker.marker.name) {
         new marker.props.google.maps.event.trigger( marker.marker, 'click') // custom event triggered
       }
     })
@@ -135,12 +133,13 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-
+        
           <header>
               <h1><a href="/">London Drama Schools</a></h1>
           </header>
 
           <main className="maincontent">
+
 
             <aside className={this.state.sidebarOn === true? "sidebar" : "sidebar-move"}>
               <Search
@@ -172,7 +171,9 @@ class App extends Component {
             windowHasClosed={this.windowHasClosed}
             setMarkers={this.setMarkers}
             />
+
             
+
          </main>
 
           
