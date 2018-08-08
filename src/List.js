@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 class List extends Component {
+
 	render() {
 		return(
 			<div className="school-container">
@@ -9,6 +10,10 @@ class List extends Component {
 					<li key={school.id}>
 					<button
 					className="school-button"
+					key={school.id}
+					onClick={
+						this.props.onSchoolClick
+					}// not working as it should
 					>
 						{school.name}
 					</button>

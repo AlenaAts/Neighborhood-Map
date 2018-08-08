@@ -5,22 +5,20 @@ import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
 
 class TheMap extends Component {
 
-  
-
-
 	render() {
-    const {schools, center, zoom, marker, visible, selectedPlace, onMarkerClick} = this.props
-
+    const {schools, center, zoom, marker, visible, selectedPlace, onMarkerClick, google, windowHasClosed, menuClicked} = this.props
 		return(
 			<section className="map-container">
         <div className="map" aria-label="" role="application">
-        <button className="menu">
+        <button
+        className="menu"
+        onClick={menuClicked}>
             <span></span>
             <span></span>
             <span></span>
           </button>
         <Map
-        google={this.props.google}
+        google={google}
         zoom={zoom}
         initialCenter={center}
         >
@@ -34,13 +32,16 @@ class TheMap extends Component {
             city={school.location.city}
             country={school.location.country}
             state={school.location.state}
-            animation={(selectedPlace.name === school.name) && this.props.google.maps.Animation.Fo}
+            animation={(selectedPlace.name === school.name) && google.maps.Animation.Fo}
+            setMarkers={this.props.setMarkers(google.maps.Marker)}
+            marker={marker}
             />
           ))}
 
         <InfoWindow
         marker={marker}
         visible={visible}
+        onClose={windowHasClosed}
         >
           <div className="info-window">
             <h2>{selectedPlace.name}</h2>
@@ -56,6 +57,7 @@ class TheMap extends Component {
         </Map>
         </div>
       </section>
+
 		);
 	}
 }

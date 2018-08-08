@@ -68,13 +68,8 @@ section {
 	display: block;
 }
 
-/* TODO: deside do you need it*/
 html {
 	overflow-y: hidden;
-}
-
-.App {
-	max-height: 100%; /*Do you need this?*/
 }
 
 .App header {
@@ -110,78 +105,7 @@ html {
 	width: 100%;
 }
 
-.sidebar {
-	background-color: #990000;
-	text-align: center;
-	width: 25%;
-	min-width: 250px;
-	z-index: 0;
-	display: flex;
-	flex-direction: column;
-	flex-wrap: nowrap;
-	position: relative;
-	border-right: 1px solid #3d0000;
-	
-	
-	/*transition: transform .2s ease-in-out;*/
-}
-
-/*not working so far
-.sidebar::-webkit-scrollbar {
-	width: 10px;
-}
-
-.sidebar::-webkit-scrollbar-track {
-	border-radius: 10px;
-}
-
-.sidebar::-webkit-scrollbar-thumb {
-	border-radius: 10px;
-	background: black;
-}*/
-
-.search-wrapper {
-	width: 100%;
-	padding: 15px 0;
-	background-color: #faf4f4;
-}
-
-.search-wrapper input {
-	background-color: #faf4f4;
-}
-
-.school-search {
-	border: none;
-	outline: none;
-	font-size: 1.5em;
-}
-
-.school-container {
-
-	position: relative;
-	overflow-y: scroll;
-	height: 100%
-}
-
-.school-list li {
-	
-
-}
-
-.school-button {
-	border-radius: 3px;
-	background-color: #faf4f4;
-	border: none;
-	text-align: center;
-	color: #990000;
-	width: 90%;
-	margin-top:10px;
-	min-height: 30px;
-	text-transform: uppercase;
-	padding: 3px 3px;
-	font-family: 'Quicksand', sans-serif;
-	font-size: 13px;
-}
+/*========== Map field ==========*/
 
 .map-container {
 	background: blue none repeat scroll 0 0;
@@ -219,6 +143,7 @@ html {
 	display: block;
 }
 
+/* button to open/close the sidebar */
 .menu {
 	top: 40px;
 	z-index: 1;
@@ -239,6 +164,70 @@ html {
 	margin: 4px;
 	height: 4px;
 	border-radius: 5px;
+}
+
+/*========== Sidebar field ==========*/
+
+.sidebar {
+	background-color: #990000;
+	text-align: center;
+	width: 25%;
+	min-width: 250px;
+	z-index: 0;
+	display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	position: relative;
+	border-right: 1px solid #3d0000;
+}
+
+/*style for closed sidebar*/
+.sidebar-move {
+	width: 0;
+	transition: transform 0.3s ease;
+}
+
+.search-wrapper {
+	width: 100%;
+	padding: 15px 0;
+	background-color: #faf4f4;
+}
+
+.search-wrapper input {
+	background-color: #faf4f4;
+	color: #3d0000;
+}
+
+.school-search {
+	border: none;
+	outline: none;
+	font-size: 1.5em;
+}
+
+.school-container {
+	position: relative;
+	overflow-y: scroll;
+	height: 100%
+}
+
+.school-list li {
+	
+
+}
+
+.school-button {
+	border-radius: 3px;
+	background-color: #faf4f4;
+	border: none;
+	text-align: center;
+	color: #990000;
+	width: 90%;
+	margin-top:10px;
+	min-height: 30px;
+	text-transform: uppercase;
+	padding: 3px 3px;
+	font-family: 'Quicksand', sans-serif;
+	font-size: 13px;
 }
 
 .footer {
