@@ -9,10 +9,11 @@ class TheMap extends Component {
     const {schools, center, zoom, marker, visible, selectedPlace, onMarkerClick, google, windowHasClosed, menuClicked, setMarkers} = this.props
 		return(
 			<section className="map-container">
-        <div className="map" aria-label="" role="application">
+        <div className="map" aria-label="Map with multiple markers" role="application">
         <button
         className="menu"
-        onClick={menuClicked}>
+        onClick={menuClicked}
+        aria-label="Schools list button">
             <span></span>
             <span></span>
             <span></span>
@@ -34,6 +35,7 @@ class TheMap extends Component {
             state={school.location.state}
             animation={(selectedPlace.name === school.name) && google.maps.Animation.Fo}
             ref={setMarkers} //passes marker data to App.js credit: https://reactjs.org/docs/refs-and-the-dom.html
+            aria-label="School marker"
             />
           ))}
 
@@ -41,6 +43,7 @@ class TheMap extends Component {
         marker={marker}
         visible={visible}
         onClose={windowHasClosed}
+        aria-label="Opened window with school info"
         >
           <div className="info-window">
             <h2>{selectedPlace.name}</h2>

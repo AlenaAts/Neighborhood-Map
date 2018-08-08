@@ -9,7 +9,8 @@ class Search extends Component {
                 className="school-search"
                 placeholder="Search"
                 value={this.props.query}
-                onChange={(event) => this.props.onChange(event.target.value)}>
+                onChange={(event) => this.props.onChange(event.target.value)}
+                aria-label="School search form">
                 </input>
             </div>
 		);

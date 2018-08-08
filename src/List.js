@@ -5,7 +5,10 @@ class List extends Component {
 	render() {
 		return(
 			<div className="school-container">
-			<ul className="school-list">
+			<ul
+			className="school-list"
+			aria-label="List of schools"
+			role="navigation">
 				{this.props.schools.map((school) => (
 					<li key={school.id}>
 					<button

@@ -35,7 +35,7 @@ class App extends Component {
     // an array of searched result
     showingSchools: [],
     // the condition of opened sidebar
-    sidebarOn: true,
+    sidebarOn: true, //TODO: set to false
     // all markers data
     markers: []
   }
@@ -140,8 +140,9 @@ class App extends Component {
 
           <main className="maincontent">
 
-
-            <aside className={this.state.sidebarOn === true? "sidebar" : "sidebar-move"}>
+            <aside
+            className={this.state.sidebarOn === true? "sidebar" : "sidebar-move"}
+            tabindex={this.state.sidebarOn === true? '-1' : '0'}>
               <Search
               query={this.state.query}
               onChange={this.updateQuery}/>
@@ -155,7 +156,7 @@ class App extends Component {
               <footer className="footer">
                 <img src={udacityLogo} alt="udacity logo"></img>
                 <span> Neighborhood Map Project</span>
-                <img src={foursquareLogo} alt="foursquare logo"></img>
+                <img src={foursquareLogo} alt="Powered by Foursquare"></img>
               </footer>
             </aside>
 
@@ -170,12 +171,9 @@ class App extends Component {
             menuClicked={this.menuBunttonClicked}
             windowHasClosed={this.windowHasClosed}
             setMarkers={this.setMarkers}
-            />
-
-            
+            />         
 
          </main>
-
           
       </div>
     );
