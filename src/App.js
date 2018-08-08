@@ -131,6 +131,7 @@ class App extends Component {
   }
     
   render() {
+    const {sidebarOn, query, showingSchools, center, zoom, activeMarker, showingInfoWindow, selectedPlace} = this.state
     return (
       <div className="App">
         
@@ -141,15 +142,15 @@ class App extends Component {
           <main className="maincontent">
 
             <aside
-            className={this.state.sidebarOn === true? "sidebar" : "sidebar-move"}
-            tabindex={this.state.sidebarOn === true? '-1' : '0'}>
+            className={sidebarOn === true? "sidebar" : "sidebar-move"}
+            tabindex={sidebarOn === true? '-1' : '0'}>
               <Search
-              query={this.state.query}
+              query={query}
               onChange={this.updateQuery}/>
 
               <List
-              schools={this.state.showingSchools}
-              query={this.state.query}
+              schools={showingSchools}
+              query={query}
               onSchoolClick={this.onSchoolClick}
               />
 
@@ -161,12 +162,12 @@ class App extends Component {
             </aside>
 
             <TheMap
-            center={this.state.center}
-            zoom={this.state.zoom}
-            schools={this.state.showingSchools}
-            marker={this.state.activeMarker}
-            visible={this.state.showingInfoWindow}
-            selectedPlace={this.state.selectedPlace}
+            center={center}
+            zoom={zoom}
+            schools={showingSchools}
+            marker={activeMarker}
+            visible={showingInfoWindow}
+            selectedPlace={selectedPlace}
             onMarkerClick={this.onMarkerClick}
             menuClicked={this.menuBunttonClicked}
             windowHasClosed={this.windowHasClosed}
