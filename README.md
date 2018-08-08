@@ -16,7 +16,7 @@ To get started with the project:
 
 ## Service Workers
 
-To use the app with service workers run the app in production mode. For that you need to run:
+To use the app with service workers run it in production mode. For that you need to run:
 
 * `npm run build`
 * `npm install -g serve`
