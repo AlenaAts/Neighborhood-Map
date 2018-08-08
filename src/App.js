@@ -75,16 +75,14 @@ class App extends Component {
       activeMarker: marker,
       showingInfoWindow: true
     })
-    //console.log('Fetched school from Marker ckick', props)
-    console.log('Fetched marker from Marker click', marker)
-    //console.log('Schools from marker are ', this.state.selectedPlace)
-    //console.log(e)
-  }
+   }
 
-  // TODO: fill this.state.markers array with marker data. Right now it is filling an array with empty objects.
+  // passes an empty array all markers data
   setMarkers = (marker) => {
         
-    this.state.markers.push(marker)
+    if (marker !== null) {
+      this.state.markers.push(marker)
+    }
     
    // console.log(this.state.markers)
   }
@@ -126,16 +124,16 @@ class App extends Component {
   }
 
 
-  onSchoolClick = (props) => {
-    this.openInfoWindow(props)
-   }
+  onSchoolClick = (school) => {
+    //console.log(school.name)
 
-   // TODO: think about fetching all markers data and put it into an empty array
-  openInfoWindow = (marker) => {
-
+    for (const marker of this.state.markers) {
+      if (school.name == marker.marker.name) {
+        new marker.props.google.maps.event.trigger( marker.marker, 'click') // custom event triggered
+      }
+    }
   }
-
-  
+    
   render() {
     return (
       <div className="App">

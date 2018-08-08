@@ -11,9 +11,7 @@ class List extends Component {
 					<button
 					className="school-button"
 					key={school.id}
-					onClick={
-						this.props.onSchoolClick
-					}// not working as it should
+					onClick={() => this.props.onSchoolClick(school)}
 					>
 						{school.name}
 					</button>

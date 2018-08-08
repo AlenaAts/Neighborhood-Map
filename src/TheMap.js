@@ -6,7 +6,7 @@ import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
 class TheMap extends Component {
 
 	render() {
-    const {schools, center, zoom, marker, visible, selectedPlace, onMarkerClick, google, windowHasClosed, menuClicked} = this.props
+    const {schools, center, zoom, marker, visible, selectedPlace, onMarkerClick, google, windowHasClosed, menuClicked, setMarkers} = this.props
 		return(
 			<section className="map-container">
         <div className="map" aria-label="" role="application">
@@ -33,8 +33,7 @@ class TheMap extends Component {
             country={school.location.country}
             state={school.location.state}
             animation={(selectedPlace.name === school.name) && google.maps.Animation.Fo}
-            setMarkers={this.props.setMarkers(google.maps.Marker)}
-            marker={marker}
+            ref={setMarkers} //passes marker data to App.js credit: https://reactjs.org/docs/refs-and-the-dom.html
             />
           ))}
 
